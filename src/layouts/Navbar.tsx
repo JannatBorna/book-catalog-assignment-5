@@ -1,8 +1,10 @@
+import logo from '../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { Button } from '../components/ui/button';
 import { DropdownMenuSeparator } from '../components/ui/dropdown-menu';
 import { DropdownMenuLabel } from '../components/ui/dropdown-menu';
+import avater from '../assets/images/avatar.png';
 import {
   DropdownMenuItem,
   DropdownMenu,
@@ -11,7 +13,6 @@ import {
 } from '../components/ui/dropdown-menu';
 import { HiOutlineSearch } from 'react-icons/hi';
 import Cart from '../components/Cart';
-// import logo from '../assets/images/technet-logo.png';
 
 export default function Navbar() {
   return (
@@ -19,8 +20,7 @@ export default function Navbar() {
       <div className="w-full h-full bg-white/60">
         <div className="flex items-center justify-between w-full h-full mx-auto md:max-w-7xl ">
           <div>
-            {/* <img className="h-8" src={logo} alt="log" /> */}
-            <h2 className='p-1 text-red-300 border-b-4 border-indigo-500'>BOOK CATALOG</h2>
+            <img className="w-40 h-30" src={logo} alt="Logo" />          
           </div>
           <div>
             <ul className="flex items-center">
@@ -51,7 +51,7 @@ export default function Navbar() {
                 <DropdownMenu>
                   <DropdownMenuTrigger className="outline-none">
                     <Avatar>
-                      <AvatarImage src="https://github.com/shadcn.png" />
+                      <AvatarImage src={avater} />
                       <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
