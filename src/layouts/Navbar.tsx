@@ -34,11 +34,6 @@ export default function Navbar() {
                 </Button>
               </li>
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/checkout">Checkout</Link>
-                </Button>
-              </li>
-              <li>
                 <Button variant="ghost">
                   <HiOutlineSearch size="25" />
                 </Button>
