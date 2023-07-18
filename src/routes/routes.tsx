@@ -7,6 +7,7 @@ import Products from '../pages/Products';
 import Checkout from '../pages/Checkout';
 import Signup from '../pages/Signup';
 import ProductDetails from '../pages/ProductDetails';
+import PrivateRoute from './PrivateRoute';
 
 const routes = createBrowserRouter([
   {
@@ -19,7 +20,12 @@ const routes = createBrowserRouter([
       },
       {
         path: '/products',
-        element: <Products />,
+        
+        element: (
+  <PrivateRoute>
+   <Products /> 
+  </PrivateRoute>
+),
       },
       {
         path: '/product-details/:id',
