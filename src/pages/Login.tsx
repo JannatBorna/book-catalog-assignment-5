@@ -1,35 +1,26 @@
 import { cn } from '../lib/utils';
 import { buttonVariants } from '../components/ui/button';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
 import { LoginForm } from '../components/LoginForm';
+import signin from '../assets/images/sign.jpg';
+import Navbar from '../layouts/Navbar';
 
 export default function Login() {
   return (
     <>
+    <Navbar />
       <div className="container relative flex-col items-center justify-center hidden h-screen md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <Link
           to="/signup"
           className={cn(
             buttonVariants({ variant: 'ghost', size: 'sm' }),
-            'absolute right-4 top-4 md:right-8 md:top-8'
+            'absolute right-4 top-4 md:right-8 md:top-20'
           )}
         >
           Signup
         </Link>
         <div className="relative flex-col hidden h-full p-10 text-white bg-muted dark:border-r lg:flex">
-          <div
-            className="absolute inset-0 bg-cover"
-            style={{
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1590069261209-f8e9b8642343?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80)',
-            }}
-          />
-          <div className="relative z-20 flex items-center text-lg font-medium">
-            <Link to="/">
-            <img className="h-8" src={logo} alt="" />
-            </Link>
-          </div>
+          <img  className="absolute inset-0 bg-cover" src={signin} alt="" />
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
           </div>
