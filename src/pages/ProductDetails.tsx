@@ -3,10 +3,19 @@ import ProductReview from '../components/ProductReview';
 // import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSingleProductQuery } from '../redux/features/products/productApi';
+import Cart from '../components/Cart';
+import { Button } from '../components/ui/button';
+import { useAppDispatch } from '../redux/hook';
+import { addToCart, removeFromCart, removeOne } from '../redux/features/cart/cartSlice';
+import Delate from '../components/Delate';
+import Edit from '../components/Edit';
 
 
 
 export default function ProductDetails() {
+
+   const dispatch = useAppDispatch();
+
   const { id } = useParams();
   console.log(id);
   const { data: product, isLoading, error } = useSingleProductQuery(id);
@@ -29,9 +38,11 @@ console.log(error);
               <li key={feature}>{feature}</li>
             ))}
           </ul>
+          <Edit />
+          <Delate />
         </div>
       </div>
-   
+
       <ProductReview id={id!}/>    {/* comments id */}
     </>
   );

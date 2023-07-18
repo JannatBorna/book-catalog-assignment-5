@@ -12,7 +12,6 @@ import {
   DropdownMenuContent,
 } from '../components/ui/dropdown-menu';
 import { HiOutlineSearch } from 'react-icons/hi';
-import Cart from '../components/Cart';
 
 export default function Navbar() {
   return (
@@ -43,9 +42,6 @@ export default function Navbar() {
                 <Button variant="ghost">
                   <HiOutlineSearch size="25" />
                 </Button>
-              </li>
-              <li>
-                <Cart />
               </li>
               <li className="ml-5">
                 <DropdownMenu>
