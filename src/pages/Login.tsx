@@ -1,13 +1,13 @@
-import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
+import { cn } from '../lib/utils';
+import { buttonVariants } from '../components/ui/button';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/technet-logo-white.png';
-import { LoginForm } from '@/components/LoginForm';
+import logo from '../assets/images/logo.png';
+import { LoginForm } from '../components/LoginForm';
 
 export default function Login() {
   return (
     <>
-      <div className="container relative hidden h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className="container relative flex-col items-center justify-center hidden h-screen md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <Link
           to="/signup"
           className={cn(
@@ -17,7 +17,7 @@ export default function Login() {
         >
           Signup
         </Link>
-        <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
+        <div className="relative flex-col hidden h-full p-10 text-white bg-muted dark:border-r lg:flex">
           <div
             className="absolute inset-0 bg-cover"
             style={{
@@ -26,7 +26,9 @@ export default function Login() {
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
+            <Link to="/">
             <img className="h-8" src={logo} alt="" />
+            </Link>
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2"></blockquote>
@@ -43,7 +45,7 @@ export default function Login() {
               </p>
             </div>
             <LoginForm />
-            <p className="px-8 text-center text-sm text-muted-foreground">
+            <p className="px-8 text-sm text-center text-muted-foreground">
               By clicking continue, you agree to our{' '}
               <Link
                 to="/terms"

@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import avater from '../assets/images/avatar.png';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
-import { FiSend } from 'react-icons/fi';
 import { useGetCommentQuery, 
   usePostCommentMutation,
  } from '../redux/features/products/productApi';
@@ -51,24 +51,24 @@ postComment(options)
     <div className="mx-auto mt-5 max-w-7xl">
       <form className="flex items-center gap-5" onSubmit={handleSubmit}>
         <Textarea
-          className="min-h-[30px]"
+          className="min-h-[30px] w-80"
           onChange={handleChange}
           value={inputValue}
         />
         <Button
           type="submit"
-          className="rounded-full h-10 w-10 p-2 text-[25px]"
+          className=""
         >
-          <FiSend />
+          Review
         </Button>
       </form>
       <div className="mt-10">
         {data?.comments?.map((comment: string, index: number) => (
           <div key={index} className="flex items-center gap-3 mb-5">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
+             <Avatar>
+                <AvatarImage src={avater} />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             <p>{comment}</p>
           </div>
         ))}

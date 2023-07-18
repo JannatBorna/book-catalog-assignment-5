@@ -12,8 +12,22 @@ import {
   DropdownMenuContent,
 } from '../components/ui/dropdown-menu';
 import { HiOutlineSearch } from 'react-icons/hi';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
+import { signOut } from 'firebase/auth';
+import { auth } from '../lib/firebase';
+import { setUser } from '../redux/features/user/userSlice';
 
 export default function Navbar() {
+    //logout
+  const {user} = useAppSelector((state) => state.user);
+const dispatch = useAppDispatch();
+  const handleLogout = () =>{
+    console.log('LogOut')
+    signOut(auth).then(() => {
+dispatch(setUser(null));
+    })
+
+  }
   return (
     <nav className="fixed z-10 w-full h-16 top backdrop-blur-lg">
       <div className="w-full h-full bg-white/60">
@@ -47,9 +61,12 @@ export default function Navbar() {
                     </Avatar>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
+                    
                     <DropdownMenuLabel>Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                     <Link to="/signup">
+                   {!user.email && (
+                     <>
+                     <Link to="/login">
                        <DropdownMenuItem className="cursor-pointer">
                          Sign in
                        </DropdownMenuItem>
@@ -59,6 +76,18 @@ export default function Navbar() {
                          Sign up
                        </DropdownMenuItem>
                      </Link>
+                     </>
+                      )}
+                      {
+                      user.email && (
+
+                      <DropdownMenuItem 
+                      className="cursor-pointer"
+                      onClick={handleLogout}
+                      >
+                        Logout
+                      </DropdownMenuItem>
+                      )}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </li>
