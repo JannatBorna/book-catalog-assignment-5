@@ -1,42 +1,38 @@
-import ProductReview from '@/components/ProductReview';
-import { Button } from '@/components/ui/button';
-import { IProduct } from '@/types/globalTypes';
-import { useEffect, useState } from 'react';
+// import { IProduct } from '../types/globalTypes';
+import ProductReview from '../components/ProductReview';
+// import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSingleProductQuery } from '../redux/features/products/productApi';
+
+
 
 export default function ProductDetails() {
   const { id } = useParams();
-
-  //! Temporary code, should be replaced with redux
-  const [data, setData] = useState<IProduct[]>([]);
-  useEffect(() => {
-    fetch('../../public/data.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  const product = data?.find((item) => item._id === Number(id));
-
-  //! Temporary code ends here
+  console.log(id);
+  const { data: product, isLoading, error } = useSingleProductQuery(id);
+console.log(isLoading);
+console.log(error);
 
   return (
     <>
-      <div className="flex max-w-7xl mx-auto items-center border-b border-gray-300">
+      <div className="flex items-center mx-auto border-b border-gray-300 max-w-7xl">
         <div className="w-[50%]">
-          <img src={product?.image} alt="" />
+          <img src={product?.img} alt="" className='w-9/12 h-96 '/>
         </div>
         <div className="w-[50%] space-y-3">
-          <h1 className="text-3xl font-semibold">{product?.name}</h1>
-          <p className="text-xl">Rating: {product?.rating}</p>
+          <h1 className="text-3xl font-semibold">Book Author:{product?.author}</h1>
+          <h6><b>Title:</b>{product?.title}</h6>
+          <p><b>Genre</b>: {product?.genre}</p>
+          <p><b>Publication Date:</b> {product?.publicationDate}</p>
           <ul className="space-y-1 text-lg">
-            {product?.features?.map((feature) => (
+            {product?.features?.map((feature: string) => (
               <li key={feature}>{feature}</li>
             ))}
           </ul>
-          <Button>Add to cart</Button>
         </div>
       </div>
-      <ProductReview />
+   
+      <ProductReview id={id!}/>    {/* comments id */}
     </>
   );
 }
