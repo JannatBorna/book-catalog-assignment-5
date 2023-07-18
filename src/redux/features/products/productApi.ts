@@ -12,6 +12,11 @@ const productApi = api.injectEndpoints({
       query: (id) => `/product/${id}`,
     }),
 
+    // home product
+    getHomeProducts: builder.query({
+      query: () => '/homeProduct',
+    }),
+
     // post comment
     postComment: builder.mutation({
       query: ({ id, data }) => ({
