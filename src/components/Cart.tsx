@@ -41,16 +41,11 @@ export default function Cart() {
               key={product.author}
             >
               <div className="pr-5 border-r shrink-0">
-                {/* <img src={product?.title} alt="" className="h-full" /> */}
                 <h1 className="self-center text-2xl">{product?.author}</h1>
               </div>
               <div className="flex flex-col w-full gap-3 px-2">
                 <h1 className="self-center text-2xl">{product?.title}</h1>
                 <p>Quantity: {product.genre}</p>
-                {/* <p className="text-xl"> */}
-                  {/* Total Price: {(product.price * product.quantity!).toFixed(2)}{' '} */}
-                  {/* $ */}
-                {/* </p> */}
               </div>
               <div className="flex flex-col justify-between pl-5 border-l">
                 <Button onClick={() => dispatch(addToCart(product))}>

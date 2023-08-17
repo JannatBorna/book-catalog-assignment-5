@@ -1,14 +1,9 @@
 import ProductCard from '../components/ProductCard';
-// import { Label } from '../components/ui/label';
-// import { Slider } from '../components/ui/slider';
-// import { Switch } from '../components/ui/switch';
 import { useToast } from '../components/ui/use-toast';
 import Footer from '../layouts/Footer';
 import { useGetProductsQuery } from '../redux/features/products/productApi';
-// import { setPublicationDate, toggleState } from '../redux/features/products/productSlice';
 import { useAppSelector } from '../redux/hook';
 import { IProduct } from '../types/globalTypes';
-// import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 
 export default function Products() {

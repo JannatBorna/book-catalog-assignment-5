@@ -1,19 +1,9 @@
 import { IProduct } from '../types/globalTypes';
 import { toast } from './ui/use-toast';
-// import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../redux/hook';
 import { addToCart } from '../redux/features/cart/cartSlice';
-// import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-// import {
-// Table,
-// TableBody,
-// TableCell,
-// // TableHead,
-// // TableHeader,
-// TableRow,} from "../components/ui/table"
 
 
 
@@ -57,7 +47,7 @@ const dispatch = useAppDispatch()
         </button>
         <Link 
         to={`/product-details/${product._id}`}
-        style={{padding: '0.5em', background: '#d1411d', color: '#fff', textDecoration: 'none'}}
+        style={{padding: '0.5em', background: '#e6ca2a', color: '#000', textDecoration: 'none'}}
         >
           Details
         </Link> 

@@ -1,17 +1,5 @@
 import logo from '../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
-import { Button } from '../components/ui/button';
-import { DropdownMenuSeparator } from '../components/ui/dropdown-menu';
-import { DropdownMenuLabel } from '../components/ui/dropdown-menu';
-import avater from '../assets/images/avatar.png';
-import {
-  DropdownMenuItem,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-} from '../components/ui/dropdown-menu';
-import { HiOutlineSearch } from 'react-icons/hi';
 import { useAppDispatch, useAppSelector } from '../redux/hook';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
@@ -38,58 +26,39 @@ dispatch(setUser(null));
           <div>
             <ul className="flex items-center">
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/">Home</Link>
-                </Button>
+                  <Link to="/"
+                   style={{padding: '0.5em', textDecoration: 'none', color: 'black', backgroundColor: '#e4e3e2'}}
+                  >Home</Link>
               </li>
               <li>
-                <Button variant="link" asChild>
-                  <Link to="/products">All Books</Link>
-                </Button>
+                  <Link to="/products"
+                   style={{padding: '0.5em', textDecoration: 'none', color: 'black', backgroundColor: '#e4e3e2'}}
+                   className='mx-5'
+                  >All Books</Link>
               </li>
               <li>
-                <Button variant="ghost">
-                  <HiOutlineSearch size="25" />
-                </Button>
               </li>
               <li className="ml-5">
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="outline-none">
-                    <Avatar>
-                      <AvatarImage src={avater} />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    
-                    <DropdownMenuLabel>Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
                    {!user.email && (
                      <>
-                     <Link to="/login">
-                       <DropdownMenuItem className="cursor-pointer">
+                     <Link to="/login"
+                      style={{padding: '0.5em', textDecoration: 'none', color: 'black', backgroundColor: '#e4e3e2'}}
+                     >
                          Sign in
-                       </DropdownMenuItem>
-                     </Link>
-                     <Link to="/signup">
-                       <DropdownMenuItem className="cursor-pointer">
-                         Sign up
-                       </DropdownMenuItem>
                      </Link>
                      </>
                       )}
                       {
                       user.email && (
 
-                      <DropdownMenuItem 
+                      <button
                       className="cursor-pointer"
+                      style={{padding: '0.4em', background: '#e94518', color: '#fff'}}
                       onClick={handleLogout}
                       >
                         Logout
-                      </DropdownMenuItem>
+                      </button>
                       )}
-                  </DropdownMenuContent>
-                </DropdownMenu>
               </li>
             </ul>
           </div>
