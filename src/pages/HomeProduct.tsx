@@ -5,11 +5,14 @@ import { useAppDispatch, useAppSelector } from "../redux/hook";
 import { setPublicationDate } from "../redux/features/products/productSlice";
 import HomeProductCard from "../components/HomeProductCart";
 import { IProduct } from '../types/globalTypes';
+import { Container } from 'react-bootstrap';
+import './HomeProduct.css';
 
 export function HomeProduct() {
     const [limit, setLimit] = useState(10);
     //!api 
 const {data, isLoading,error} = useGetProductsQuery(undefined)
+console.log(setLimit);
 console.log(isLoading)
 console.log(error);
 console.log(data)
@@ -19,7 +22,7 @@ const {publicationDate, status } = useAppSelector((state) => state.product)
 const dispatch = useAppDispatch();
 const handleSlider = (value: number[]) => {
   dispatch(setPublicationDate(value[0]));
-  // console.log(value);
+   console.log(handleSlider);
 };
 let productsData;
 if (status) {
@@ -32,11 +35,13 @@ if (status) {
   productsData = data?.data;
 }
   return (
-    <div>
+    <Container>
+    <div className="product">
+    
   {productsData?.slice(0, limit ? limit : productsData.length).map((product: IProduct) => (
     <HomeProductCard product={product} />
   ))}
     </div>
-    
+    </Container>
   )
 }
