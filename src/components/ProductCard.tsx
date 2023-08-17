@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../redux/hook';
 import { addToCart } from '../redux/features/cart/cartSlice';
 import Card from 'react-bootstrap/Card';
+import Spinner from '../pages/Spinner';
+import { useGetProductsQuery } from '../redux/features/products/productApi';
 
 
 interface IProps {
@@ -11,6 +13,12 @@ interface IProps {
 }
 
 export default function ProductCard({ product }: IProps) {
+ 
+const { isLoading} = useGetProductsQuery(undefined)
+ if (isLoading) {
+     return <Spinner/>
+ }
+
 
 const dispatch = useAppDispatch()
 
@@ -18,7 +26,7 @@ const dispatch = useAppDispatch()
   const handleAddProduct = (product: IProduct) => {
     console.log(product);
     //dispatch
-    dispatch(addToCart(product)); // payload হিসেবে product কে পাছ করে দিতে হবে 
+    dispatch(addToCart(product)); 
 
     
     toast({
