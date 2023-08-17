@@ -1,8 +1,5 @@
-// import { cn } from '../lib/utils';
-// import { buttonVariants } from '../components/ui/button';
 import { Link } from 'react-router-dom';
 import { LoginForm } from '../components/LoginForm';
-// import signin from '../assets/images/sign.jpg';
 import Navbar from '../layouts/Navbar';
 
 export default function Login() {

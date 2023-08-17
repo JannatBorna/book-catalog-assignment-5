@@ -1,15 +1,15 @@
 'use client';
 
 import * as React from 'react';
-
 import { cn } from '../lib/utils';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { useForm } from 'react-hook-form';
-import { FcGoogle } from 'react-icons/fc';
 import { createUser } from '../redux/features/user/userSlice';
-import { useAppDispatch } from '../redux/hook';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
+import { useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -24,6 +24,20 @@ export function SignupForm({ className, ...props }: UserAuthFormProps) {
     handleSubmit,
     formState: { errors },
   } = useForm<SignupFormInputs>();
+
+
+ // re driect
+ const {user, isLoading} = useAppSelector((state) => state.user)
+ 
+ const navigate = useNavigate();
+
+useEffect(() =>{
+  if(user.email && !isLoading){
+    navigate('/')
+  }
+}, [user.email, isLoading])
+
+
 // email password
 const dispatch = useAppDispatch()
   const onSubmit = (data: SignupFormInputs) => {
@@ -80,14 +94,6 @@ const dispatch = useAppDispatch()
           </span>
         </div>
       </div>
-      <Button
-        variant="outline"
-        type="button"
-        className="flex items-center justify-between"
-      >
-        <p>Google</p>
-        <FcGoogle />
-      </Button>
     </div>
   );
 }
