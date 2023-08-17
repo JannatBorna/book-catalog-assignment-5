@@ -1,8 +1,8 @@
 import { IProduct } from '../types/globalTypes';
-import { toast } from './ui/use-toast';
+// import { toast } from './ui/use-toast';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../redux/hook';
-import { addToCart } from '../redux/features/cart/cartSlice';
+// import { useAppDispatch } from '../redux/hook';
+// import { addToCart } from '../redux/features/cart/cartSlice';
 import Card from 'react-bootstrap/Card';
 import Spinner from '../pages/Spinner';
 import { useGetProductsQuery } from '../redux/features/products/productApi';
@@ -20,19 +20,18 @@ const { isLoading} = useGetProductsQuery(undefined)
  }
 
 
-const dispatch = useAppDispatch()
+// const dispatch = useAppDispatch()
 
 
-  const handleAddProduct = (product: IProduct) => {
+  // const handleAddProduct = (product: IProduct) => {
     console.log(product);
     //dispatch
-    dispatch(addToCart(product)); 
+  //   dispatch(addToCart(product)); 
 
-    
-    toast({
-      description: 'Product Added',
-    });
-  };
+  //   toast({
+  //     description: 'Product Added',
+  //   });
+  // };
   return (
       <div className='my-3'>
       <Card style={{ width: '26rem' }}>
@@ -46,12 +45,13 @@ const dispatch = useAppDispatch()
           <span><b>Genre:</b> {product?.genre}</span>
           <span className='mx-4'><b>Publication Date:</b> {product?.publicationDate}</span></p>
         </Card.Text>
-        <button  onClick={() => handleAddProduct(product)} 
-        style={{padding: '0.5em', background: '#3a7693', color: '#fff'}}
+        {/* <button  onClick={() => handleAddProduct(product)}  */}
+        <Link to="/addNew"
+        style={{padding: '0.5em', background: '#3a7693', color: '#fff', textDecoration: 'none'}}
         className='mx-5'
         > 
         Add to cart 
-        </button>
+        </Link>
         <Link 
         to={`/product-details/${product._id}`}
         style={{padding: '0.5em', background: '#e6ca2a', color: '#000', textDecoration: 'none'}}

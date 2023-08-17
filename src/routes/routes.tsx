@@ -8,6 +8,7 @@ import Checkout from '../pages/Checkout';
 import Signup from '../pages/Signup';
 import ProductDetails from '../pages/ProductDetails';
 import PrivateRoute from './PrivateRoute';
+import AddNewBook from '../components/AddNewBook';
 
 const routes = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const routes = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/addNew',
+    element: <AddNewBook />,
   },
   {
     path: '/signup',

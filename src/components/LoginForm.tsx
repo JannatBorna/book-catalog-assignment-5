@@ -86,17 +86,6 @@ useEffect(() =>{
           </span>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 }

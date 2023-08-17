@@ -4,6 +4,7 @@ import { SignupForm } from '../components/SignUpForm';
 import { Link } from 'react-router-dom';
 // import signin from '../assets/images/sign.jpg';
 import Navbar from '../layouts/Navbar';
+import Footer from '../layouts/Footer';
 
 export default function Signup() {
   return (
@@ -25,6 +26,7 @@ export default function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

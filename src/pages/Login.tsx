@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { LoginForm } from '../components/LoginForm';
 import Navbar from '../layouts/Navbar';
+import Footer from '../layouts/Footer';
 
 export default function Login() {
   return (
     <>
     <Navbar />
-      <div className="container relative flex-col items-center justify-center h-screen md:grid lg:max-w-none ">
+      <div className="container relative flex-col items-center justify-center h-screen md:grid lg:max-w-none">
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
@@ -22,6 +23,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
