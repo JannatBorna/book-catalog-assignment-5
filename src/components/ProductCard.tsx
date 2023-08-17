@@ -30,13 +30,13 @@ const dispatch = useAppDispatch()
       <Card style={{ width: '26rem' }}>
       <Card.Body>
         <Card.Title>
-          <h4>Author: {product?.author}</h4>
+          <h4>Title: {product?.title}</h4>
         </Card.Title>
-        <Card.Text><b>Title:</b> {product?.title}</Card.Text>
+        <Card.Text><b>Author:</b> {product?.author}</Card.Text>
         <Card.Text>
         <p style={{ display:"flex", justifyContent:"space-between", width:"100%", color:"gray", margin:"10px 0px" }} >
           <span><b>Genre:</b> {product?.genre}</span>
-          <span className='mx-4'><b>PublicationDate:</b> {product?.publicationDate}</span></p>
+          <span className='mx-4'><b>Publication Date:</b> {product?.publicationDate}</span></p>
         </Card.Text>
         <button  onClick={() => handleAddProduct(product)} 
         style={{padding: '0.5em', background: '#3a7693', color: '#fff'}}
