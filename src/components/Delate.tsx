@@ -9,8 +9,9 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
-import { useAppSelector, useAppDispatch } from '../redux/hook';
+// import { useAppSelector, useAppDispatch } from '../hook/useAuth';
 import { removeFromCart } from '../redux/features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
 
 export default function Delate() {
   

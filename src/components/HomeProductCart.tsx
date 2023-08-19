@@ -1,9 +1,11 @@
 import { IProduct } from '../types/globalTypes';
-// import { toast } from './ui/use-toast';
+import { toast } from './ui/use-toast';
 import { Link } from 'react-router-dom';
-// import { useAppDispatch } from '../redux/hook';
-// import { addToCart } from '../redux/features/cart/cartSlice';
+ import { useAppDispatch } from '../redux/hook';
+ import { addToCart } from '../redux/features/cart/cartSlice';
 import Card from 'react-bootstrap/Card';
+// import { Toaster, toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 
 
 
@@ -13,18 +15,18 @@ interface IProps {
 
 export default function HomeProductCard({ product }: IProps) {
 
-// const dispatch = useAppDispatch()
 
+ const dispatch = useAppDispatch()
+   const handleAddProduct = (product: IProduct) => {
+     console.log(product);
+    dispatch
+     dispatch(addToCart(product)); 
 
-  // const handleAddProduct = (product: IProduct) => {
-    // console.log(product);
-    //dispatch
-    // dispatch(addToCart(product)); 
-
-    // toast({
-    //   description: 'Product Added',
-    // });
-  // };
+    // toast.success("Successfully Book Add cart");
+        toast({
+          description: 'Successfully Book Add cart',
+        });
+   };
   return (
   <div className='my-3'>
       <Card style={{ width: '26rem' }}>
@@ -38,13 +40,12 @@ export default function HomeProductCard({ product }: IProps) {
           <span><b>Genre:</b> {product?.genre}</span>
           <span className='mx-4'><b>Publication Date:</b> {product?.publicationDate}</span></p>
         </Card.Text>
-        {/* <button  onClick={() => handleAddProduct(product)}  */}
-        <Link to="/addNew"
+        <button onClick={() => handleAddProduct(product)}
         style={{padding: '0.5em', background: '#3a7693', color: '#fff', textDecoration: 'none'}}
         className='mx-5'
         > 
-        Add New Book
-        </Link>
+        Book Add
+        </button>
         <Link 
         to={`/product-details/${product._id}`}
         style={{padding: '0.5em', background: '#e6ca2a', color: '#000', textDecoration: 'none'}}

@@ -7,9 +7,10 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { useForm } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from '../redux/hook';
+// import { useAppDispatch, useAppSelector } from '../hook/useAuth';
 import { loginUser } from '../redux/features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -39,7 +40,7 @@ useEffect(() =>{
  // login
   const dispatch = useAppDispatch();
   const onSubmit = (data: LoginFormInputs) => {
-    console.log(data);
+    // console.log(data);
     dispatch(loginUser({email: data.email, password: data.password}))
   };
 

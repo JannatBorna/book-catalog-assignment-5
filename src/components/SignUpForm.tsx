@@ -7,9 +7,10 @@ import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { useForm } from 'react-hook-form';
 import { createUser } from '../redux/features/user/userSlice';
-import { useAppDispatch, useAppSelector } from '../redux/hook';
+// import { useAppDispatch, useAppSelector } from '../hook/useAuth';
 import { useNavigate } from 'react-router-dom';
 import {useEffect} from 'react';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>;
 

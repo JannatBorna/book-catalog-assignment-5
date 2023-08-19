@@ -1,19 +1,20 @@
 import logo from '../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux/hook';
+// import { useAppDispatch, useAppSelector } from '../hook/useAuth';
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { setUser } from '../redux/features/user/userSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
 
 export default function Navbar() {
     //logout
-  const {user} = useAppSelector((state) => state.user);
+const {user} = useAppSelector((state) => state.user);
 const dispatch = useAppDispatch();
-  const handleLogout = () =>{
+const handleLogout = () =>{
     console.log('LogOut')
     signOut(auth).then(() => {
-dispatch(setUser(null));
-    })
+    dispatch(setUser(null));
+    })  
 
   }
   return (

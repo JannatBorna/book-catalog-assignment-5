@@ -12,7 +12,7 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
-import { useAppSelector, useAppDispatch } from '../redux/hook';
+import { useAppSelector, useAppDispatch } from '../hook/useAuth';
 import { addToCart, removeFromCart, removeOne } from '../redux/features/cart/cartSlice';
 
 export default function Cart() {

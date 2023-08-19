@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useGetProductsQuery } from "../redux/features/products/productApi";
 import { useToast } from "../components/ui/use-toast";
-import { useAppDispatch, useAppSelector } from "../redux/hook";
+// import { useAppDispatch, useAppSelector } from "../hook/useAuth";
 import { setPublicationDate } from "../redux/features/products/productSlice";
 import HomeProductCard from "../components/HomeProductCart";
 import { IProduct } from '../types/globalTypes';
 import { Container } from 'react-bootstrap';
 import './HomeProduct.css';
+import { useAppDispatch, useAppSelector } from "../redux/hook";
 
 export function HomeProduct() {
     const [limit, setLimit] = useState(10);
@@ -36,7 +37,7 @@ if (status) {
 }
   return (
     <Container>
-    <div className="product">
+    <div className="books">
     
   {productsData?.slice(0, limit ? limit : productsData.length).map((product: IProduct) => (
     <HomeProductCard product={product} />
