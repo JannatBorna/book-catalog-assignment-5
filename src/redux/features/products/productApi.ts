@@ -56,16 +56,6 @@ const productApi = api.injectEndpoints({
       query: (id) => `/comment/${id}`,
       providesTags: ['comments'], //tagTypes
     }),
-
-    // getMyBook: builder.query({
-    // query: () => ({
-    // url: '/books/my-books',
-    // headers: {
-    // authorization: parseToken?.accessToken,
-    // },
-    // }),
-    // providesTags: ['myBooks'],
-    // }),
   }),
 });
 

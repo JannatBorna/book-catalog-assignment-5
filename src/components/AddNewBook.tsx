@@ -3,9 +3,9 @@ import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 import { useAddNewBookMutation } from "../redux/features/products/productApi";
 import { useNavigate } from "react-router-dom";
-import { IBook } from "../interfaces/book.interfaces";
-import { toast } from "react-hot-toast";
 import { useAppSelector } from "../redux/hook";
+import { IProduct } from "../types/globalTypes";
+import { toast } from "./ui/use-toast";
 
 
 const CreateNews = () => {
@@ -17,22 +17,22 @@ const {
   register,
   handleSubmit,
   formState: { errors },
-} = useForm<IBook>();
-const onSubmit = (data: IBook) => {
+} = useForm<IProduct>();
+const onSubmit = (data: IProduct) => {
   const book = {
+    no: data.no,
     title: data.title,
     author: data.author,
     genre: data.genre,
-    image: data?.image,
     publicationDate: data.publicationDate,
     email: user?.email,
-    // name: user?.fullName,
-    // userId: user?._id,
   };
 
   addNewBook(book);
-  toast.success("Successfully added new Book");
-  navigate("/products");
+      toast({
+      description: 'Successfully added new Book',
+    });
+  navigate("/all-books");
   console.log(addNewBook)
 
   
@@ -54,6 +54,30 @@ return (
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
                   <div className="grid items-center justify-center grid-cols-2 gap-4">
+
+                    <div>
+                      <label
+                        htmlFor="No"
+                        className="text-base font-medium text-gray-900"
+                      >
+                        Book No
+                        <span className="ml-2 text-sm font-semibold text-red-800">
+                          {errors?.number?.message}
+                        </span>
+                      </label>
+                      <div className="mt-2.5 relative">
+                        <input
+                          type="number"
+                          {...register("Number", {
+                            required: "Number",
+                          })}
+                          name="Number"
+                          id="Number"
+                          placeholder="Enter your Book no"
+                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md shadow-inner shadow-gray-400 caret-blue-600"
+                        />
+                      </div>
+                    </div>
                     <div>
                       <label
                         htmlFor=""

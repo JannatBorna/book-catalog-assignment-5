@@ -32,7 +32,7 @@ const handleLogout = () =>{
                   >Home</Link>
               </li>
               <li>
-                  <Link to="/products"
+                  <Link to="/all-books"
                    style={{padding: '0.5em', textDecoration: 'none', color: 'black', backgroundColor: '#e4e3e2'}}
                    className='mx-5'
                   >All Books</Link>

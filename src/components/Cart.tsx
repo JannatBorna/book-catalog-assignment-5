@@ -12,8 +12,8 @@ import {
   HiOutlineTrash,
 } from 'react-icons/hi';
 import { Button } from './ui/button';
-import { useAppSelector, useAppDispatch } from '../hook/useAuth';
 import { addToCart, removeFromCart, removeOne } from '../redux/features/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '../redux/hook';
 
 export default function Cart() {
   

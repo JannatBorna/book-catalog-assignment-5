@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
  import { useAppDispatch } from '../redux/hook';
  import { addToCart } from '../redux/features/cart/cartSlice';
 import Card from 'react-bootstrap/Card';
-// import { Toaster, toast } from 'react-hot-toast';
-// import { toast } from 'react-hot-toast';
 
 
 
@@ -22,7 +20,6 @@ export default function HomeProductCard({ product }: IProps) {
     dispatch
      dispatch(addToCart(product)); 
 
-    // toast.success("Successfully Book Add cart");
         toast({
           description: 'Successfully Book Add cart',
         });

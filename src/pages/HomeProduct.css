@@ -1,5 +1,4 @@
 .books{
  display: grid;
  grid-template-columns: repeat(3,1fr);
- /* background-color: #e4e3e2; */
 }
