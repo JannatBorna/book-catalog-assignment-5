@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useState } from "react";
 import { useGetProductsQuery } from "../redux/features/products/productApi";
 import { useToast } from "../components/ui/use-toast";
-// import { useAppDispatch, useAppSelector } from "../hook/useAuth";
 import { setPublicationDate } from "../redux/features/products/productSlice";
 import HomeProductCard from "../components/HomeProductCart";
 import { IProduct } from '../types/globalTypes';

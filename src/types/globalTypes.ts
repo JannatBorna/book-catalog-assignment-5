@@ -15,3 +15,9 @@ export interface IProduct {
   name: string;
   userId: string;
 }
+
+// export interface IError {
+// data: {
+// message: string;
+// };
+// }

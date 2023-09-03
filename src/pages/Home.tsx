@@ -1,8 +1,8 @@
-// import { Spinner } from "react-bootstrap";
 import Footer from "../layouts/Footer";
-import { HomeProduct } from "./HomeProduct";
 import { useGetProductsQuery } from "../redux/features/products/productApi";
 import Spinner from "./Spinner";
+import Banner from "./Banner";
+import { HomeProduct } from "./HomeProduct";
 
 
 export default function Home() {
@@ -14,6 +14,7 @@ const { isLoading} = useGetProductsQuery(undefined)
 
   return (
     <div>
+      <Banner />
        <HomeProduct />
        <Footer />
     </div>
